@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  scrum-copilot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scrum_ceremonies_copilot
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/scrum_clean_v3.db:/app/backend/scrum_clean_v3.db
+    environment:
+      - PORT=8000
